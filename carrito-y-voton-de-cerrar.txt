@@ -1,0 +1,111 @@
+// Función para cerrar sesión
+function cerrarSesion() {
+    // Eliminar los indicadores de sesión de sessionStorage
+    sessionStorage.removeItem('sesionActiva');
+    sessionStorage.removeItem('usuario');
+}
+
+// Obtener el botón de cierre de sesión y el elemento span para cerrar el modal
+const logoutModal = document.getElementById('logoutModal');
+const logoutBtn = document.getElementById('logout');
+const logoutModalCloseBtn = logoutModal.querySelector('.close');
+
+// Cuando el usuario haga clic en el botón de cierre de sesión, abrir el modal
+logoutBtn.onclick = () => {
+    logoutModal.style.display = 'block';
+};
+
+// Cuando el usuario haga clic en el botón de cierre del modal de cierre de sesión, cerrar el modal
+logoutModalCloseBtn.onclick = () => {
+    logoutModal.style.display = 'none';
+};
+
+// Cuando el usuario haga clic en el botón de confirmación de cierre de sesión, cerrar la sesión
+document.getElementById('confirmLogout').onclick = () => {
+    // Eliminar los datos de sesión del usuario
+    cerrarSesion();
+    // Redirigir al usuario a la página de inicio de sesión o a donde desees
+    window.location.href = "index.html";
+};
+
+// Cuando el usuario haga clic fuera del modal de cierre de sesión, cerrar el modal
+window.onclick = event => {
+    if (event.target === logoutModal) {
+        logoutModal.style.display = 'none';
+    }
+};
+
+// JavaScript para manejar el carrito de compra
+// Define una variable para almacenar los elementos del carrito
+let cartItems = [];
+
+// Función para agregar un elemento al carrito
+function addToCart(productName, price, image) {
+    cartItems.push({ name: productName, price: price, image: image });
+    updateCart();
+    // Notificar al usuario
+    alert('¡Producto agregado al carrito!');
+}
+
+// Función para eliminar un elemento del carrito
+function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    updateCart();
+}
+
+// Función para actualizar visualmente el carrito
+function updateCart() {
+    const cartList = document.getElementById('cart-items');
+    cartList.innerHTML = '';
+    let totalPrice = 0;
+    cartItems.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        const productImage = document.createElement('img');
+        productImage.src = item.image;
+        productImage.alt = item.name;
+        listItem.appendChild(productImage);
+        const productName = document.createElement('span');
+        productName.textContent = item.name;
+        listItem.appendChild(productName);
+        const productPrice = document.createElement('span');
+        productPrice.textContent = `$${item.price}`;
+        listItem.appendChild(productPrice);
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Eliminar';
+        removeButton.onclick = () => removeFromCart(index);
+        listItem.appendChild(removeButton);
+        cartList.appendChild(listItem);
+        totalPrice += parseFloat(item.price);
+    });
+    document.getElementById('cart-total').textContent = `$${totalPrice.toFixed(2)}`;
+}
+
+// Obtener el botón de cierre del carrito y el elemento span para cerrar el modal
+const cartModal = document.getElementById('cart');
+const cartCloseBtn = cartModal.querySelector('.close');
+
+// Cuando el usuario haga clic en el botón de cierre del carrito, cerrar el modal
+cartCloseBtn.onclick = () => {
+    cartModal.style.display = 'none';
+};
+
+// Función para abrir el carrito cuando el usuario haga clic en el botón de carrito
+function openCart() {
+    cartModal.style.display = 'block';
+    updateCart(); // Asegúrate de que el carrito se actualice cuando se abra
+}
+
+// Agrega event listener a los botones de "Agregar al carrito" en cada producto
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', event => {
+        const productName = event.target.dataset.productName;
+        const price = event.target.dataset.price;
+        const image = event.target.dataset.image;
+        addToCart(productName, price, image);
+    });
+});
+
+// Agrega event listener al botón de "Carrito" en la barra de navegación
+const cartNavBtn = document.getElementById('cart-nav-btn');
+cartNavBtn.addEventListener('click', openCart);

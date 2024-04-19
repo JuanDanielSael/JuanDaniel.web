@@ -1,0 +1,74 @@
+/* Añade estos estilos al final de tu archivo CSS */
+
+.registration-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+}
+
+.registration-container form {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 400px;
+}
+
+.registration-container form h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.registration-container form .input-container {
+  margin-bottom: 20px;
+}
+
+.registration-container form .input-container input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.registration-container form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #ff4e78;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.registration-container form button:hover {
+  background-color: #ff6b92;
+}
+
+.registration-container form .error-msg {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  display: none;
+}
+
+.registration-container form .register-link {
+  text-align: center;
+}
+
+.registration-container form .register-link a {
+  color: #333;
+  text-decoration: none;
+}
+
+.registration-container form .register-link a:hover {
+  text-decoration: underline;
+}

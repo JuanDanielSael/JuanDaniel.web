@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transición</title>
+<link rel="stylesheet" href="transicion_del_login.styles.css">
+</head>
+<body>
+<div class="background"></div>
+<div class="transition-container">
+  <h1 class="title-animation">Bienvenido a Juan Daniel Sael</h1>
+</div>
+<script>
+  setTimeout(function() {
+    window.location.href = "aplicacion_web.html"; // Cambia esto al archivo correcto
+  }, 4000); // Cambia este valor al tiempo deseado en milisegundos (4 segundos en este caso)
+</script>
+</body>
+</html>

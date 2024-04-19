@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro</title>
+<link rel="stylesheet" href="formulario_de_registro.styles.css"> <!-- Estilos del formulario de registro -->
+<link rel="stylesheet" href="formulario_de_registro.styles2.css"> <!-- Estilos del formulario de inicio de sesión -->
+</head>
+<body>
+<div class="background"></div>
+<div class="login-container"> <!-- Cambia la clase a "login-container" para usar el mismo estilo -->
+  <form id="registration-form" class="registration-form" action="formulario-de-registro.php" method="post">
+    <h2>Registro</h2>
+    <div class="input-container">
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+    </div>
+    <div class="input-container">
+      <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+    </div>
+    <div class="input-container">
+      <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+    </div>
+    <div class="input-container">
+      <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+    </div>
+    <div class="input-container">
+      <select id="sexo" name="sexo" onchange="showSelectedSex()">
+        <option value="" disabled selected>Seleccione su sexo</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+    <div class="input-container" id="sexo-seleccionado" style="display: none;"></div> <!-- Este div mostrará el sexo seleccionado -->
+    <div class="input-container">
+      <input type="date" id="fecha" name="fecha" required>
+    </div>
+
+    <div class="input-container">
+      <button type="submit">Registrar</button>
+    </div>
+     <p class="register-link">¿Ya tienes una cuenta? <a href="index.html">Inicia sesión</a></p>
+
+  </form>
+</div>
+</body>
+</html>

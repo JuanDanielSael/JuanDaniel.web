@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'aplicacion_sael'
+      MYSQL_USER: 'sael'
+      MYSQL_PASSWORD: '@Sael1313'
+      MYSQL_ROOT_PASSWORD: '@Sael1313'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql

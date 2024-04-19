@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Evita que el fondo se desplace */
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #ff5f6d, #ffc371); /* Cambia los colores del fondo aquí */
+}
+
+.transition-container {
+  text-align: center;
+}
+
+.title-animation {
+  font-size: 36px;
+  color: #ff6347; /* Color inicial */
+  animation: explode 2s forwards, join 1s 2s forwards; /* Aplica la animación de explosión y luego la animación de unión */
+}
+
+@keyframes explode {
+  0% {
+    opacity: 0; /* Oculta el texto al principio */
+    transform: scale(0); /* Escala el texto a tamaño 0 */
+  }
+  50% {
+    opacity: 1; /* Muestra el texto a mitad de la animación */
+    transform: scale(1.5); /* Escala el texto a un tamaño más grande */
+  }
+  100% {
+    opacity: 1; /* Mantiene el texto visible al final */
+    transform: scale(1); /* Restaura el tamaño normal del texto */
+    color: #ff0000; /* Cambia el color durante la explosión */
+  }
+}
+
+@keyframes join {
+  0% {
+    opacity: 1; /* Mantiene el texto visible al principio */
+    transform: scale(1); /* Escala el texto a tamaño normal */
+  }
+  100% {
+    opacity: 1; /* Mantiene el texto visible al final */
+    transform: scale(1); /* Mantiene el tamaño normal del texto */
+    color: #ff6347; /* Restaura el color original */
+  }
+}
